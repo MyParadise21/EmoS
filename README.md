@@ -47,13 +47,7 @@ Keep the category and scene folders intact. Each scene should contain `Model_1.w
 
 ## Evaluation
 
-Run commands from the repository root. First check the data layout and sample counts:
-
-```bash
-python evaluate.py --data-root data/EmoS/cn --categories BAP IAA EST --dry-run
-```
-
-Then run evaluation with your checkpoint:
+Run from the repository root. Replace `/path/to/evaluator` with your evaluator checkpoint and select the tasks with `--categories`:
 
 ```bash
 python evaluate.py \
@@ -76,12 +70,4 @@ To calculate metrics from an existing prediction file:
 
 ```bash
 python metrics.py -i outputs/cn_selected.jsonl -o outputs/recomputed.metrics.json
-```
-
-## Tests
-
-The offline tests do not require a GPU or model weights:
-
-```bash
-python -B -m unittest discover -s tests -v
 ```
